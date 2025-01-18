@@ -1,0 +1,11 @@
+.external-style-container {
+    background-color: indianred;
+    border: 3px solid indigo;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#external-styling-list {
+    font-style: italic;
+}

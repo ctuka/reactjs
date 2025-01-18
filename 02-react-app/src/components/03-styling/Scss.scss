@@ -1,0 +1,28 @@
+$color1: green;
+$color2: blue;
+$color3: red;
+
+.scss-conrtainer{
+    margin: 1rem;
+    padding: 1rem;
+    border: 3px solid $color1;
+    border-radius: 10px;
+
+    li {
+        color: $color2;
+        text-align: left;
+    }
+
+    #heading {
+        color: $color3;
+
+    }
+
+    @for $i from 1 through 3 {
+        .p-#{$i} {
+            color: chartreuse;
+            text-align: center;
+            font-size: calc(10px * $i);
+        }
+    }
+}
