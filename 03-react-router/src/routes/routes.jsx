@@ -6,6 +6,7 @@ import { rootLoader } from "@/api/root-loader";
 import { createContactAction } from "@/actions/create-contact-action";
 import { contactLoader } from "@/actions/contact-loader";
 import EditContact from "./edit-contact";
+import { updateContactAction } from "@/actions/update-contact-action"
 
 
 // createsBrowserRouter acts like App.jsx
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
                 path: "/contacts/:contactId/edit",
                 element: <EditContact />,
                 loader: contactLoader,
+                action: updateContactAction
             },
         ],
     },

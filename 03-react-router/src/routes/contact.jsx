@@ -5,14 +5,16 @@ export default function Contact() {
     const data = useLoaderData();
     console.log(data);
 
-    const contact = {
-        first: "Your",
-        last: "Name",
-        avatar: "https://robohash.org/you.png?size=200x200",
-        twitter: "your_handle",
-        notes: "Some notes",
+    const contact = 
+    {
+        first: data?.contact?.name,
+        last: data?.contact?.last,
+        avatar: data?.contact?.avatar ,
+        twitter: data?.contact?.twitter,
+        notes: data?.contact?.notes,
         favorite: true,
-    };
+    } 
+    
 
     return (
         <div id="contact">
