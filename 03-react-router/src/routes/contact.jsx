@@ -58,7 +58,7 @@ export default function Contact() {
                         <button type="submit">Edit</button>
                     </Form>
                     <Form
-                        method="post"
+                        method="delete"
                         action="destroy"
                         onSubmit={(event) => {
                             if (
