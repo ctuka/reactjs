@@ -33,7 +33,7 @@ export default [
                 "warn",
                 { allowConstantExport: true },
             ],
-            "react/proto-types": "off"
+            "react/proto-types": "off",
         },
     },
 ];

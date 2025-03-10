@@ -35,8 +35,8 @@
 //import FormValidationManually from "./components/21-forms/FormValidationManually";
 //import FormikYup1 from "./components/22-formik-yup/FormikYup1";
 //import FormikYup2 from "./components/22-formik-yup/FormikYup2";
-import FormikYup3 from "./components/22-formik-yup/FormikYup3";
-
+//import FormikYup3 from "./components/22-formik-yup/FormikYup3";
+import Form1 from "./components/21-forms/Form1";
 
 export default function App() {
 
@@ -136,7 +136,7 @@ export default function App() {
           {/* <FormValidationManually />  */}
           {/* <FormikYup1 /> */}
           {/* <FormikYup2 /> */}
-          <FormikYup3 />
+          <Form1 />
 
 
       </div>
