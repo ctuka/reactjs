@@ -1,7 +1,14 @@
 import  Button  from "react-bootstrap/Button";
-import { useReducer} from "react";
+import {  useContext, useReducer} from "react";
 import  Container  from "react-bootstrap/Container";
 import  Alert  from "react-bootstrap/Alert";
+import Navbar from "react-bootstrap/Navbar";
+import { AuthContext } from "@/store/auth-store";
+import  Nav  from "react-bootstrap/Nav";
+import { types } from "../store/auth-store";
+import { Link } from "react-router-dom";
+
+
 
 //initial part to send to useReducer Hook
 const initialState = {
@@ -10,20 +17,8 @@ const initialState = {
 };
 
 
-export default function HomePage() {
-
-    // const [counter, setCounter] = useState(0);
-
-    // const handleCounter = () => {
-    //     setCounter(prev => prev +1);
-    // }
-
-    const [state, dispatch] = useReducer(reduce, initialState );
-
-      //Action object will tell us what to do with the type sent from dispatch
-    function reduce(state, action) {
-       
-
+//Action object will tell us what to do with the type sent from dispatch
+function reduce(state, action) {
     if (action.type === "increment_counter") {
       return {
         ...state,
@@ -40,7 +35,20 @@ export default function HomePage() {
 
     //if non of them maches it keep the state unchanged 
     return state;
-    }
+}
+
+export default function HomePage() {
+
+    // const [counter, setCounter] = useState(0);
+
+    // const handleCounter = () => {
+    //     setCounter(prev => prev +1);
+    // }
+
+    const [state, dispatch] = useReducer(reduce, initialState );
+
+    const centralState = useContext(AuthContext);
+    const {state: authState, dispatch: authDispatch} = centralState;
 
     const handleClickCounter = () => {
       //whatever is sent to disptch will maching with the action in the reducer function
@@ -51,8 +59,28 @@ export default function HomePage() {
         dispatch({ type: "change_theme"});
     };
 
+    const handleLogout = () => {
+        authDispatch({ type: types.LOGOUT });
+    }   
+
   return (
-      <Container className="text-center">
+    <div className="">
+        <Navbar  data-bs-theme="dark" className="bg-body-tertiary">
+        <Container >
+        <Navbar.Brand >
+            {authState.isAuthenticated ? `Welcome back ${authState?.user?.username}` : "Wellcome Stranger"}
+            
+        </Navbar.Brand>
+            <Nav className="text light"> 
+                {authState.isAuthenticated ? (
+                <Button type="button" variant="danger" onClick={handleLogout}>
+                    Logout
+                </Button>
+            ) : (<Nav.Link as={Link} to="/login">Login</Nav.Link>)} 
+            </Nav>
+            </Container>
+        </Navbar>
+        <Container className="text-center">
           <h1 className="mb-3 p-4">Home Page</h1>
           <Button
               className="w-50"
@@ -69,5 +97,7 @@ export default function HomePage() {
               <p>Theme: {state.theme}</p>
           </Alert>
       </Container>
-  );
+ 
+    </div>
+    );   
 }

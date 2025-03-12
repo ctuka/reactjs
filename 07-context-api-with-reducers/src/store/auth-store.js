@@ -1,6 +1,7 @@
 import { createContext} from "react"
 
 
+
 export const AuthContext = createContext();
 
 export const initialState = {
@@ -13,7 +14,7 @@ export const types = {
         LOGOUT: "LOGOUT"
 }
 
-export const reducer = () => {
+export const reducer = (state, action) => {
     if(action.type === types.LOGIN) {
         return {
             ...state, 

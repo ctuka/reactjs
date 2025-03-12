@@ -1,8 +1,8 @@
-import {  createBrowserRouter } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import AuthProvider from "../providers/AuthProvider";
-import LoginPage from "../pages/auth/LoginPage";
 
+import { createBrowserRouter } from "react-router-dom";
+import HomePage from "@/pages/HomePage";
+import AuthProvider from "@/providers/AuthProvider";
+import LoginPage from "@/pages/auth/LoginPage";
 
 export const router = createBrowserRouter([
     {
@@ -19,4 +19,6 @@ export const router = createBrowserRouter([
             },
         ],
     },
-]); 
+]);
+
+export default router;
